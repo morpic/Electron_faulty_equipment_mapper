@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>My Google Map</title>
+  <style>
+    #map{
+      height:100%;
+    }
+    html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    
+
+    /* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 35px;
+  height: 22px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 14px;
+  width: 14px;
+  left: 2px;
+  bottom: 4px;
+  /* background-color: white; */
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(17px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+#wrapperDiv{
+    position: absolute;
+    top: 10px;
+    left: 200px;
+    z-index: 1;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #999;
+    /* text-align: left; */
+    font-family: 'Roboto','sans-serif';
+    line-height: 22px;
+    padding-left: 2px;
+    border-radius: 15px;
+    padding: 1px 3px 1px 3px;
+}
+#wrapperDiv2{
+    top: 10px;
+    left: 330px;
+    position: absolute;
+    z-index: 1;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #999;
+    /* text-align: left; */
+    font-family: 'Roboto','sans-serif';
+    line-height: 22px;
+    padding-left: 2px;
+    border-radius: 15px;
+    padding: 1px 3px 1px 3px;
+    /* float: right; */
+}
+
+#wrapperDiv3{
+    top: 10px;
+    left: 460px;
+    position: absolute;
+    z-index: 1;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #999;
+    /* text-align: left; */
+    font-family: 'Roboto','sans-serif';
+    line-height: 22px;
+    padding-left: 2px;
+    border-radius: 15px;
+    padding: 1px 3px 1px 3px;
+}
+
+#wrapperDiv4{
+    top: 10px;
+    left: 600px;
+    position: absolute;
+    z-index: 1;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #999;
+    /* text-align: left; */
+    font-family: 'Roboto','sans-serif';
+    line-height: 22px;
+    padding-left: 2px;
+    border-radius: 15px;
+    padding: 1px 3px 1px 3px;
+    
+}
+
+#wrapperDiv5{
+    top: 10px;
+    left: 740px;
+    position: absolute;
+    z-index: 1;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #999;
+    /* text-align: left; */
+    font-family: 'Roboto','sans-serif';
+    line-height: 22px;
+    padding-left: 2px;
+    border-radius: 15px;
+    padding: 1px 3px 1px 3px;
+    
+}
+#wrapperDiv6{
+    top: 10px;
+    left: 880px;
+    position: absolute;
+    z-index: 1;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #999;
+    /* text-align: left; */
+    font-family: 'Roboto','sans-serif';
+    line-height: 22px;
+    padding-left: 2px;
+    border-radius: 15px;
+    padding: 1px 3px 1px 3px;
+}
+#wrapperDiv7{
+    top: 40px;
+    left: 200px;
+    position: absolute;
+    z-index: 1;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #999;
+    /* text-align: left; */
+    font-family: 'Roboto','sans-serif';
+    line-height: 22px;
+    padding-left: 2px;
+    border-radius: 15px;
+    padding: 1px 3px 1px 3px;
+    
+}
+#wrapperDiv8{
+    top: 40px;
+    left: 330px;
+    position: absolute;
+    z-index: 1;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #999;
+    /* text-align: left; */
+    font-family: 'Roboto','sans-serif';
+    line-height: 22px;
+    padding-left: 2px;
+    border-radius: 15px;
+    padding: 1px 3px 1px 3px;
+}
+#wrapperDiv9{
+    top: 40px;
+    left: 880px;
+    position: absolute;
+    z-index: 1;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #999;
+    /* text-align: left; */
+    font-family: 'Roboto','sans-serif';
+    line-height: 22px;
+    padding-left: 2px;
+    border-radius: 15px;
+    padding: 1px 3px 1px 3px;
+    
+}
+#wrapperDiv10{
+    top: 40px;
+    left: 740px;
+    position: absolute;
+    z-index: 1;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #999;
+    /* text-align: left; */
+    font-family: 'Roboto','sans-serif';
+    line-height: 22px;
+    padding-left: 2px;
+    border-radius: 15px;
+    padding: 1px 3px 1px 3px;
+    
+}
+#searchBar{
+    top: 40px;
+    left: 460px;
+    position: absolute;
+    z-index: 1;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #999;
+    /* text-align: left; */
+    font-family: 'Roboto','sans-serif';
+    line-height: 22px;
+    padding-left: 2px;
+    border-radius: 15px;
+    padding: 1px 3px 1px 3px;
+    
+}
+#searching{
+    border-radius: 15px;
+    padding: 1px 3px 1px 3px;
+    }
+#search{
+    border-radius: 15px;
+    padding: 1px 3px 1px 3px;
+}
+#wrapperDiv11{
+    top: 10px;
+    left: 1180px;
+    position: absolute;
+    z-index: 1;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #999;
+    /* text-align: left; */
+    font-family: 'Roboto','sans-serif';
+    line-height: 22px;
+    padding-left: 2px;
+    border-radius: 15px;
+    padding: 1px 3px 1px 3px;
+    display: none;
+}
+
+
+.labelDiv{
+    float: right;
+}
+
+.checkBoxDiv{
+    float: left;
+}
+
+#test1:before{
+    background-color: #00008B;
+}
+#test2:before{
+    background-color: lime;
+}
+#test3:before{
+    background-color: #FF00FF;
+}
+#test4:before{
+    background-color: #FFFF00;
+}
+#test5:before{
+    background-color: #FF8C00;
+}
+#test6:before{
+    background-color: #8A2BE2;
+}
+#test7:before{
+    background-color: white;
+}
+#test8:before{
+    background-color: white;
+}
+
+.custom-select{
+    top: 10px;
+    left: 1060px;
+    position: absolute;
+    z-index: 1;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #999;
+    
+}
+
+.select-hide {
+  display: none;
+  width: 300px;
+}
+
+
+
+
+  </style>
+</head>
+
+
+
+<body>
+    <!-- <div id = information>
+        <p id="canvi1">jhjkh</p>
+
+    </div> -->
+
+    <div class="custom-select">
+        <select id="selector">
+            <option value=-100>Please Select</option>
+        </select>
+    </div>
+
+
+
+    <div id="wrapperDiv" class="wrapper">
+        <div class="labelDiv">
+            <label for="Team1LT" class="class1">&nbsp LT Team 1</label>
+        </div>
+        <div class="checkBoxDiv">     
+            <label class="switch">
+                <input type="checkbox" id="Team1LT" class="stopPropagation" checked>
+                <span class="slider round" id="test1"></span>
+              </label>       
+        </div>
+    </div>
+
+    <div id="wrapperDiv2" class="wrapper">
+        <div class="labelDiv">
+            <label class="class1">&nbsp LT Team 2</label>
+        </div>
+        <div class="checkBoxDiv">     
+            <label class="switch">
+                <input type="checkbox" id="Team2LT" class="stopPropagation" checked>
+                <span class="slider round" id="test2"></span>
+              </label>       
+        </div>
+    </div>
+
+    <div id="wrapperDiv3" class="wrapper">
+        <div class="labelDiv">
+            <label class="class1">&nbsp Proj Team 1</label>
+        </div>
+        <div class="checkBoxDiv">     
+            <label class="switch">
+                <input type="checkbox" id="Team1Proj" class="stopPropagation" checked>
+                <span class="slider round" id="test3"></span>
+              </label>       
+        </div>
+    </div>
+
+    <div id="wrapperDiv4" class="wrapper">
+        <div class="labelDiv">
+            <label class="class1">&nbsp Proj Team 2</label>
+        </div>
+        <div class="checkBoxDiv">     
+            <label class="switch">
+                <input type="checkbox" id="Team2Proj" class="stopPropagation" checked>
+                <span class="slider round" id="test4"></span>
+              </label>       
+        </div>
+    </div>
+
+    <div id="wrapperDiv5" class="wrapper">
+        <div class="labelDiv">
+            <label class="class1">&nbsp Proj Team 3</label>
+        </div>
+        <div class="checkBoxDiv">     
+            <label class="switch">
+                <input type="checkbox" id="Team3Proj" class="stopPropagation" checked>
+                <span class="slider round" id="test5"></span>
+              </label>       
+        </div>
+    </div>
+
+    <div id="wrapperDiv6" class="wrapper">
+        <div class="labelDiv">
+            <label class="class1">&nbsp Treatment Team</label>
+        </div>
+        <div class="checkBoxDiv">     
+            <label class="switch">
+                <input type="checkbox" id="TeamTreatment" class="stopPropagation" checked>
+                <span class="slider round" id="test6"></span>
+              </label>       
+        </div>
+    </div>
+
+
+    <div id="wrapperDiv7" class="wrapper">
+        <div class="labelDiv">
+            <label class="class1">&nbsp Urgents</label>
+        </div>
+        <div class="checkBoxDiv">     
+            <label class="switch">
+                <input type="checkbox" id="Urgents" class="stopPropagation" checked>
+                <span class="slider round" id="test7"></span>
+              </label>       
+        </div>
+    </div>
+
+    <div id="wrapperDiv8" class="wrapper">
+        <div class="labelDiv">
+            <label class="class1">&nbsp To Do's</label>
+        </div>
+        <div class="checkBoxDiv">     
+            <label class="switch">
+                <input type="checkbox" id="ToDo" class="stopPropagation" checked>
+                <span class="slider round" id="test8"></span>
+              </label>       
+        </div>
+    </div>
+
+    <input type="button" value="Reset All Markers on Map" id="wrapperDiv9" style="width: 170px;"/>
+    <input type="button" value="Get Canvas Data" id="wrapperDiv10" style="width: 130px;"/>
+
+    <div id = "searchBar">
+        <input type="text" style="width: 200px;" id="searching"/> 
+        <input type="button" id="search" style="width: 50px;" value="Search"/>
+    </div>
+
+    <div id="wrapperDiv11" class="wrapper">
+        <div class="labelDiv">
+            <label class="class1">&nbsp Calibration Check</label>
+        </div>
+        <div class="checkBoxDiv">     
+            <label class="switch">
+                <input type="checkbox" id="CalibrationCheck" class="stopPropagation">
+                <span class="slider round" id="test8"></span>
+              </label>       
+        </div>
+    </div>
+
+
+    <div id="map"></div>
+
+  <script>
+//   window.$ = window.jQuery = require("https://code.jquery.com/jquery-3.4.1.min.js")
+global.$ = require("jquery");
+const electron = require('electron');
+const {ipcRenderer} = electron;
+
+//   src="https://code.jquery.com/jquery-3.4.1.min.js"
+//   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+//   crossorigin="anonymous">
+</script>
+<script src="./oms.min.js"></script>
+
+<script>
+
+var FINALOBJECT = new Object();
+var calibrationFINALOBJECT = new Object();
+var map;
+var con;
+////////////////////////////////////*******************EXPERIMENTAL CODE. PLEASE BE AWARE*******************////////////////////////////////////   
+var oms;
+////////////////////////////////////*******************EXPERIMENTAL CODE. PLEASE BE AWARE*******************////////////////////////////////////
+var red = 'http://maps.google.com/mapfiles/ms/icons/red-dot.png';
+var blue = 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png';
+var green = 'http://maps.google.com/mapfiles/ms/icons/green-dot.png';
+var orange = "http://maps.google.com/mapfiles/ms/icons/orange-dot.png";
+var purple = "http://maps.google.com/mapfiles/ms/icons/purple-dot.png";
+var yellow = "http://maps.google.com/mapfiles/ms/icons/yellow-dot.png";
+var pink = "http://maps.google.com/mapfiles/ms/icons/pink-dot.png";
+
+///////////////////////////////SPLITS STRING INTO ARRAYS AND THEN CHECKINF IF ANY MATCH UP WITH CURRENT MARKERS ON MAP///////////////////////////////
+async function canvasSorterFunction(canviDati){
+    
+    var canvasDataArray = canviDati.split(",");
+    canviDati = null;
+
+    for(var m = 0; m < canvasDataArray.length; m++){
+        if(FINALOBJECT[canvasDataArray[m].toString().toUpperCase()] !== undefined){
+            FINALOBJECT[canvasDataArray[m]]["markerObj"].setOptions({icon: {url: "./AA.png"}});
+            // FINALOBJECT[canvasDataArray[m].toString().toUpperCase()]["markerObj"].setMap(null);
+            // delete FINALOBJECT[canvasDataArray[m].toString().toUpperCase()];
+        }
+    }
+    canvasDataArray = null;
+}
+///////////////////////////////SPLITS STRING INTO ARRAYS AND THEN CHECKINF IF ANY MATCH UP WITH CURRENT MARKERS ON MAP///////////////////////////////
+
+function initMap(){
+    $(document).ready(()=>{
+        async function overArch(){
+
+        // // this is to set map options that we wil later call upon
+        var options = {
+            zoom:10,
+            center:{lat:-34.151491,lng:150.813088},
+            // mapTypeControl: true,
+            disableDefaultUI: false //this disables all default google ui only!
+        };
+
+        map = new google.maps.Map(document.getElementById('map'), options);
+
+        oms = new OverlappingMarkerSpiderfier(map, {
+            markersWontMove: true,
+            markersWontHide: true,
+            basicFormatEvents: true
+        });
+
+        // elem.requestFullscreen();
+        
+        
+        // map.addListener("click",function(){
+        //     for(info in FINALOBJECT){
+        //         if(FINALOBJECT[info]["markerObj"] !== undefined){
+        //             console.log(FINALOBJECT[info]["markerObj"])
+        //         }
+
+        //     }
+        // })
+        ///////////////////////////////COOKIE CUTTER COORDS CONSTRUCTOR///////////////////////////////
+        // // this constructs our lats and long into a coords object
+        function coordsConstructor(a,b){
+            {
+                this.lat = a,
+                this.lng = b
+            }
+        };
+        ///////////////////////////////COOKIE CUTTER COORDS CONSTRUCTOR///////////////////////////////
+
+        ///////////////////////////////MAPPING OUR MARKERS SO WE CAN FIND AND IDENTIFY THEM EASIER///////////////////////////////
+        // // this is actually for mapping our markers so it is easier to find later when we have to check it against canvas.
+        function markerMappingConstructor(site, mapMarker,urgency,crew,datePlanned,hidra,sgNum,equipmentType,streetAddress,problemss,sheetAddress){
+            {
+                this.site = site,
+                this.markerObj = mapMarker,
+                this.importance = urgency,
+                this.team = crew,
+                this.planned = datePlanned,
+                this.danger = hidra,
+                this.maximo = sgNum,
+                this.logger = equipmentType,
+                this.location = streetAddress,
+                this.broken = problemss,
+                this.sheetOrigin = sheetAddress
+            }
+        };
+        ///////////////////////////////MAPPING OUR MARKERS SO WE CAN FIND AND IDENTIFY THEM EASIER///////////////////////////////
+
+        ///////////////////////////////CREATS ACTUAL MARKER OBJECT AND PUSHES IT INTO GLOBAL ARRAY///////////////////////////////
+        function addMarker(props){
+
+            var marker = new google.maps.Marker({           
+            position: new coordsConstructor(parseFloat(props["Latitude"]), parseFloat(props["Longitude"])),
+            map:map,
+            animation: google.maps.Animation.DROP,
+            mark:props["HydstraNum"]
+            //icon:props.iconImage
+            });
+            
+            // Check for customicon
+            if(props.iconImage){
+            // Set icon image
+            marker.setIcon(props.iconImage);
+            };
+
+            // Check content
+            var infoWindow = new google.maps.InfoWindow({
+                content:
+                "<big><strong>" + props["HydstraNum"] + "</strong></big>" + "&nbsp -" + "&nbsp" + props["GaugeAddress"]
+                + "<br />" + "<br /> <big><strong>Raised Issue: </strong></big>" + props["Issue"] 
+                + "<br />" + "<br /> <big><strong>Assigned Crew: </strong></big>" + props["AssignedCrew"] 
+                + "<br />" + "<br /> <big><strong>Priority: </strong></big>" + props["Priority"]
+                + "<br />" + "<br /> <big><strong>Logger Type: </strong></big>" + props["LoggerType"]
+                + "<br />" + "<br /> <big><strong>Planned Visit Date: </strong></big>" + props["PlannedVisit"]
+                + "<br />" + "<br /> <big><strong>Special Hazards: </strong></big>" + props["SpecialHazards"],
+                disableAutoPan: true,
+            });
+
+            ///// need this for editable markers
+            var editableInfo = new google.maps.InfoWindow({
+                content:'<div contentEditable="true"</div>'
+                    + `<form action="/action_page.php">
+                        <input type="text" name="date" placeholder="Planned Date"><br>
+                        <input type="text" name="comment" placeholder="Crew Comment"><br>
+                        <input type="text" name="Other" placeholder="Other"><br>
+                       <br>
+                        <input type="submit" value="Submit">
+                        </form>`,
+                        disableAutoPan: true,
+            })
+
+            marker.addListener('mouseover', function(){
+                infoWindow.open(map, this);
+                // this.setAnimation(google.maps.Animation.BOUNCE)
+                // this.setAnimation(google.maps.Animation.DROP) //// /// / // // /////////////////// this is newly added feature. usually not there. this references markerObj
+                // console.log(this)
+            });
+
+            marker.addListener("mouseout", function(){
+                infoWindow.close(map,this);
+            });
+
+            google.maps.event.addListener(this, 'spider_click', function(e) {  // 'spider_click', not plain 'click'
+            new google.maps.InfoWindow().open(map, this)
+            });
+
+            ////// editable markers
+            marker.addListener("rightclick", function(e){
+                editableInfo.open(map,this)
+            })
+
+            // marker.addListener("dblclick", function(e){
+            //     editableInfo.open(map,this)
+            // })
+
+            var tempVarr1 = new markerMappingConstructor(props["HydstraNum"],marker,props["Priority"],props["AssignedCrew"],props["PlannedVisit"],props["SpecialHazards"],props["MaximoNum"],props["LoggerType"],props["GaugeAddress"],props["Issue"],props["FromSheet"]);
+            if(FINALOBJECT[props["HydstraNum"]] === undefined){
+                FINALOBJECT[props["HydstraNum"]] = tempVarr1
+            }
+
+            //closes all info windows
+            google.maps.event.addListener(map, 'click', function() {
+                editableInfo.close();
+                marker.open = false;
+            });
+            ////////////////////////////////////*******************EXPERIMENTAL CODE. PLEASE BE AWARE*******************////////////////////////////////////
+            oms.addMarker(marker)
+            ////////////////////////////////////*******************EXPERIMENTAL CODE. PLEASE BE AWARE*******************////////////////////////////////////
+        }
+        ///////////////////////////////CREATS ACTUAL MARKER OBJECT AND PUSHES IT INTO GLOBAL ARRAY///////////////////////////////
+
+        ///////////////////////////////PROCESS THE DATA AND ADD MARKERS TO MAP. THIS FUNCTIONS CALLS UPON MULTIPLE OTHER FUNCTIONS///////////////////////////////
+        function processDataAndAddMarkers(fromGetDataFromBackend){
+            for(key in fromGetDataFromBackend){
+                if(fromGetDataFromBackend[key]["Latitude"] !== undefined && fromGetDataFromBackend[key]["Longitude"] !== undefined){
+                    if(fromGetDataFromBackend[key]["AssignedCrew"] === "LT Team 1"){
+                        fromGetDataFromBackend[key]["iconImage"] = blue;
+                        addMarker( fromGetDataFromBackend[key]);
+                    }
+                    else if(fromGetDataFromBackend[key]["AssignedCrew"] === "LT Team 2"){
+                        fromGetDataFromBackend[key]["iconImage"] = green;
+                        addMarker( fromGetDataFromBackend[key]);
+                    }
+                    else if(fromGetDataFromBackend[key]["AssignedCrew"] === "Projects Team 1"){
+                        fromGetDataFromBackend[key]["iconImage"] = pink;
+                        addMarker( fromGetDataFromBackend[key]);
+                    }
+                    else if(fromGetDataFromBackend[key]["AssignedCrew"] === "Projects Team 2"){
+                        fromGetDataFromBackend[key]["iconImage"] = yellow;
+                        addMarker( fromGetDataFromBackend[key]);
+                    }
+                    else if(fromGetDataFromBackend[key]["AssignedCrew"] === "Projects Team 3"){
+                        fromGetDataFromBackend[key]["iconImage"] = orange;
+                        addMarker( fromGetDataFromBackend[key]);
+                    }
+                    else if(fromGetDataFromBackend[key]["AssignedCrew"] === "Treatment"){
+                        fromGetDataFromBackend[key]["iconImage"] = purple;
+                        addMarker( fromGetDataFromBackend[key]);
+                    }
+                }
+
+            }
+        }
+
+        ipcRenderer.on("BackToFrontHereIsYourRequestData",(event,cbArg1)=>{
+            // console.log(cbArg1)
+            processDataAndAddMarkers(cbArg1);
+        })
+        ipcRenderer.send("frontToBackRequestData", "ipcRenderer Requesting frontToBackRequestData");
+
+        ipcRenderer.on("Hide UI",(event,arg)=>{
+            $("#searchBar").hide();
+            $("#wrapperDiv9").hide();
+            $("#wrapperDiv10").hide();
+            $(".wrapper").hide();
+            $(".custom-select").hide();
+        })
+
+        ipcRenderer.on("caliData",(event,arg)=>{
+            Object.assign(calibrationFINALOBJECT, arg)
+        })
+        
+        setTimeout(() => {
+            ipcRenderer.send("calibrationDataReady","null")
+        }, 5000);
+
+        
+        
+
+        setTimeout(() => {
+            GetCanvasDataNow();
+        }, 8000);
+
+        setInterval(() => {
+            GetCanvasDataNow();
+        }, 700000);
+        
+        setTimeout(() => {
+            $("#wrapperDiv11").show()
+        }, 5000);
+        
+    }
+    overArch()
+    
+        setInterval(() => {
+            window.location.reload(true);
+        }, 1800000);
+
+        //add custom method to the date prototype chain
+        Date.prototype.addDays = function(days) {
+            this.setDate(this.getDate() + parseInt(days));
+            return this;
+        };
+
+        for(var i = -3; i < 8; i++){
+            var date = new Date();
+            var day = date.getDate();
+            var month = date.toLocaleString('default', { month: 'short' });
+            var year = date.getFullYear().toString().substr(-2);
+            var dateToBeUsed = (day + i).toString() + " " + month .toString() + " " + year
+
+            var currentDate = new Date();
+            currentDate.addDays(i);
+            let weekday = currentDate.toString().substring(0,3);
+
+            var options = {
+            value: dateToBeUsed,
+            text: dateToBeUsed + " " + weekday
+            }
+
+            $('#selector').append($('<option>', options));
+        }
+    })
+}; // end of initmap
+
+async function GetCanvasDataNow(){
+    con = ""
+    // dont forget to return the jquery ajax function otherwise will not beable to reassign it to a variable (javascript closure)
+    function ajax(jax){
+        return $.ajax({
+            url: jax,
+            type: "GET",
+            dataType:'XML',
+            success: (data)=>{
+            }
+        })
+    }
+
+    // var hfToday = new Date();
+    // // console.log(hfToday);
+    // var hfUnixEpochDate = new Date("01/01/1970 00:00");
+    // var  hfStartDate=  new Date(((hfToday.getMonth() + 1) + "/" + (hfToday.getDate() - 10) + "/" + (hfToday.getFullYear())).toString().concat(" 16:00"));
+    // var hfEndDate = new Date(((hfToday.getMonth() + 1) + "/" + (hfToday.getDate()) + "/" + (hfToday.getFullYear())).toString().concat(" 18:00"));
+    // var finalStartDate = (hfStartDate - hfUnixEpochDate)/1000;
+    // var finalEndDate = (hfEndDate - hfUnixEpochDate)/1000;
+    // var uri = "https://www.gocanvas.com/apiv2/submissions.xml?username=s0y@sydneywater.com.au&password=Spiderman1&form_id=1414402&begin_second=" + finalStartDate + "&end_second=" + finalEndDate
+
+    var oneDateToRuleThemAllStartDate = (new Date(((new Date().getMonth() + 1) + "/" + (new Date().getDate() - 1) + "/" + (new Date().getFullYear())).toString().concat(" 16:00")) - new Date("01/01/1970 00:00"))/1000
+    var oneDateToRuleThemAllEndDate = (new Date(((new Date().getMonth() + 1) + "/" + (new Date().getDate()) + "/" + (new Date().getFullYear())).toString().concat(" 18:00")) - new Date("01/01/1970 00:00"))/1000
+    var uri = "https://www.gocanvas.com/apiv2/submissions.xml?username=s0y@sydneywater.com.au&password=Spiderman1&form_id=1414402&begin_second=" + oneDateToRuleThemAllStartDate + "&end_second=" + oneDateToRuleThemAllEndDate
+    
+
+    // var uri = "https://www.gocanvas.com/apiv2/submissions.xml?username=s0y@sydneywater.com.au&password=Spiderman1&form_id=1414402&begin_date=" + dateTouseForStart + "&end_date=" + dateToUseForEnd
+    const x = await ajax(uri)
+    //"https://www.gocanvas.com/apiv2/submissions.xml?username=s0y@sydneywater.com.au&password=Spiderman1&form_id=1414402&begin_date=09/18/2019&end_date=09/18/2019"
+    // $var = Invoke-WebRequest -Uri "https://www.gocanvas.com/apiv2/submissions.xml?username=s0y@sydneywater.com.au&password=Spiderman1&form_id=1414402&begin_date=09/18/2019&end_date=09/18/2019"
+    //  $var.content
+
+    // for(y in arr[0].documentElement.innerHTML){
+    //     console.log(y)
+    // }
+    // console.log(arr[0].documentElement)
+    // console.log(x.documentElement.innerHTML)
+    var r = x.documentElement.innerHTML.split("Site ID")
+    for(var z = 1; z < r.length; z++){
+        var t = ((r[z].split("</Value>"))[0].split("<Value>"))[1];
+        con = con.concat(t + ",")
+    }
+
+    // for(var z = 1; z < r.length; z++){
+    //     var t = r[z].split("</Value>");
+    //     var f = t[0].split("<Value>");
+    //     var finale = f[1];
+    //     // console.log(finale)
+    //     con = con.concat(finale + ",")
+    //     canvasArray.push(finale);
+    // }
+
+    canvasSorterFunction(con)
+} // End of GetCanvasDataNow
+
+////// stops the double click event from happening because we attached a listener to the most outer div element to allow users to click on label to trigger checkbox as well
+$('.stopPropagation').on('click', function (event) {
+    //need both these methods to work correctly
+    event.preventDefault()
+    event.stopPropagation()
+});
+
+$('#selector').change(function(){
+    var selected = $('#selector').children("option:selected").val()
+    
+    if(selected !== "-100"){
+        for(key in FINALOBJECT){
+            if(FINALOBJECT[key]["planned"] !== undefined && FINALOBJECT[key]["planned"] !== null && FINALOBJECT[key]["planned"] !== ""){
+                if(FINALOBJECT[key]["planned"] !== selected){
+                    FINALOBJECT[key]["markerObj"].setMap(null)
+                }
+                if(FINALOBJECT[key]["planned"] === selected){
+                    FINALOBJECT[key]["markerObj"].setMap(map)
+                }
+            }
+        }
+    }
+})
+
+$('#wrapperDiv').on('click', function (event) {
+    if($("#Team1LT").is(':checked') === true){
+        $("#Team1LT").prop("checked", false)
+    }else{
+        $("#Team1LT").prop("checked", true)
+    }
+
+    let ckb = $("#Team1LT").is(':checked');
+    let urgents = $("#Urgents").is(':checked');
+    let nonUrgents = $("#ToDo").is(':checked');
+
+    if(ckb === true && urgents === true && nonUrgents === true){
+        for(point in FINALOBJECT){
+            if(FINALOBJECT[point]["team"] === "LT Team 1"){
+                FINALOBJECT[point]["markerObj"].setMap(map)
+            }
+        }
+    }else if(ckb !== true){
+        for(point in FINALOBJECT){
+            if(FINALOBJECT[point]["team"] === "LT Team 1"){
+                FINALOBJECT[point]["markerObj"].setMap(null)
+            }
+        }
+    }else if(ckb === true && urgents === false && nonUrgents === true){
+        for(point in FINALOBJECT){
+            if(FINALOBJECT[point]["team"] === "LT Team 1" && FINALOBJECT[point]["importance"] === "To Do"){
+                FINALOBJECT[point]["markerObj"].setMap(map)
+            }
+        }
+    }else if(ckb === true && urgents === true && nonUrgents === false){
+        for(point in FINALOBJECT){
+            if(FINALOBJECT[point]["team"] === "LT Team 1" && FINALOBJECT[point]["importance"] === "Urgent"){
+                FINALOBJECT[point]["markerObj"].setMap(map)
+            }
+        }
+    }
+});
+
+$('#wrapperDiv2').on('click', function (event) {
+    if($("#Team2LT").is(':checked') === true){
+        $("#Team2LT").prop("checked", false)
+    }else{
+        $("#Team2LT").prop("checked", true)
+    }
+
+    let ckb = $("#Team2LT").is(':checked');
+    let urgents = $("#Urgents").is(':checked');
+    let nonUrgents = $("#ToDo").is(':checked');
+
+    if(ckb === true && urgents === true && nonUrgents === true){
+        for(point in FINALOBJECT){
+            if(FINALOBJECT[point]["team"] === "LT Team 2"){
+                FINALOBJECT[point]["markerObj"].setMap(map)
+            }
+        }
+    }else if(ckb !== true){
+        for(point in FINALOBJECT){
+            if(FINALOBJECT[point]["team"] === "LT Team 2"){
+                FINALOBJECT[point]["markerObj"].setMap(null)
+            }
+        }
+    }else if(ckb === true && urgents === false && nonUrgents === true){
+        for(point in FINALOBJECT){
+            if(FINALOBJECT[point]["team"] === "LT Team 2" && FINALOBJECT[point]["importance"] === "To Do"){
+                FINALOBJECT[point]["markerObj"].setMap(map)
+            }
+        }
+    }else if(ckb === true && urgents === true && nonUrgents === false){
+        for(point in FINALOBJECT){
+            if(FINALOBJECT[point]["team"] === "LT Team 2" && FINALOBJECT[point]["importance"] === "Urgent"){
+                FINALOBJECT[point]["markerObj"].setMap(map)
+            }
+        }
+    }
+});
+
+$('#wrapperDiv3').on('click', function (event) {
+    if($("#Team1Proj").is(':checked') === true){
+        $("#Team1Proj").prop("checked", false)
+    }else{
+        $("#Team1Proj").prop("checked", true)
+    }
+
+    let ckb = $("#Team1Proj").is(':checked');
+    let urgents = $("#Urgents").is(':checked');
+    let nonUrgents = $("#ToDo").is(':checked');
+
+    if(ckb === true && urgents === true && nonUrgents === true){
+        for(point in FINALOBJECT){
+            if(FINALOBJECT[point]["team"] === "Projects Team 1"){
+                FINALOBJECT[point]["markerObj"].setMap(map)
+            }
+        }
+    }else if(ckb !== true){
+        for(point in FINALOBJECT){
+            if(FINALOBJECT[point]["team"] === "Projects Team 1"){
+                FINALOBJECT[point]["markerObj"].setMap(null)
+            }
+        }
+    }else if(ckb === true && urgents === false && nonUrgents === true){
+        for(point in FINALOBJECT){
+            if(FINALOBJECT[point]["team"] === "Projects Team 1" && FINALOBJECT[point]["importance"] === "To Do"){
+                FINALOBJECT[point]["markerObj"].setMap(map)
+            }
+        }
+    }else if(ckb === true && urgents === true && nonUrgents === false){
+        for(point in FINALOBJECT){
+            if(FINALOBJECT[point]["team"] === "Projects Team 1" && FINALOBJECT[point]["importance"] === "Urgent"){
+                FINALOBJECT[point]["markerObj"].setMap(map)
+            }
+        }
+    }
+});
+
+$('#wrapperDiv4').on('click', function (event) {
+    if($("#Team2Proj").is(':checked') === true){
+        $("#Team2Proj").prop("checked", false)
+    }else{
+        $("#Team2Proj").prop("checked", true)
+    }
+
+    let ckb = $("#Team2Proj").is(':checked');
+    let urgents = $("#Urgents").is(':checked');
+    let nonUrgents = $("#ToDo").is(':checked');
+
+    if(ckb === true && urgents === true && nonUrgents === true){
+        for(point in FINALOBJECT){
+            if(FINALOBJECT[point]["team"] === "Projects Team 2"){
+                FINALOBJECT[point]["markerObj"].setMap(map)
+            }
+        }
+    }else if(ckb !== true){
+        for(point in FINALOBJECT){
+            if(FINALOBJECT[point]["team"] === "Projects Team 2"){
+                FINALOBJECT[point]["markerObj"].setMap(null)
+            }
+        }
+    }else if(ckb === true && urgents === false && nonUrgents === true){
+        for(point in FINALOBJECT){
+            if(FINALOBJECT[point]["team"] === "Projects Team 2" && FINALOBJECT[point]["importance"] === "To Do"){
+                FINALOBJECT[point]["markerObj"].setMap(map)
+            }
+        }
+    }else if(ckb === true && urgents === true && nonUrgents === false){
+        for(point in FINALOBJECT){
+            if(FINALOBJECT[point]["team"] === "Projects Team 2" && FINALOBJECT[point]["importance"] === "Urgent"){
+                FINALOBJECT[point]["markerObj"].setMap(map)
+            }
+        }
+    }
+});
+
+$('#wrapperDiv5').on('click', function (event) {
+    if($("#Team3Proj").is(':checked') === true){
+        $("#Team3Proj").prop("checked", false)
+    }else{
+        $("#Team3Proj").prop("checked", true)
+    }
+
+    let ckb = $("#Team3Proj").is(':checked');
+    let urgents = $("#Urgents").is(':checked');
+    let nonUrgents = $("#ToDo").is(':checked');
+
+    if(ckb === true && urgents === true && nonUrgents === true){
+        for(point in FINALOBJECT){
+            if(FINALOBJECT[point]["team"] === "Projects Team 3"){
+                FINALOBJECT[point]["markerObj"].setMap(map)
+            }
+        }
+    }else if(ckb !== true){
+        for(point in FINALOBJECT){
+            if(FINALOBJECT[point]["team"] === "Projects Team 3"){
+                FINALOBJECT[point]["markerObj"].setMap(null)
+            }
+        }
+    }else if(ckb === true && urgents === false && nonUrgents === true){
+        for(point in FINALOBJECT){
+            if(FINALOBJECT[point]["team"] === "Projects Team 3" && FINALOBJECT[point]["importance"] === "To Do"){
+                FINALOBJECT[point]["markerObj"].setMap(map)
+            }
+        }
+    }else if(ckb === true && urgents === true && nonUrgents === false){
+        for(point in FINALOBJECT){
+            if(FINALOBJECT[point]["team"] === "Projects Team 3" && FINALOBJECT[point]["importance"] === "Urgent"){
+                FINALOBJECT[point]["markerObj"].setMap(map)
+            }
+        }
+    }
+});
+
+
+$('#wrapperDiv6').on('click', function (event) {
+    if($("#TeamTreatment").is(':checked') === true){
+        $("#TeamTreatment").prop("checked", false)
+    }else{
+        $("#TeamTreatment").prop("checked", true)
+    }
+
+    let ckb = $("#TeamTreatment").is(':checked');
+    let urgents = $("#Urgents").is(':checked');
+    let nonUrgents = $("#ToDo").is(':checked');
+
+    if(ckb === true && urgents === true && nonUrgents === true){
+        for(point in FINALOBJECT){
+            if(FINALOBJECT[point]["team"] === "Treatment"){
+                FINALOBJECT[point]["markerObj"].setMap(map)
+            }
+        }
+    }else if(ckb !== true){
+        for(point in FINALOBJECT){
+            if(FINALOBJECT[point]["team"] === "Treatment"){
+                FINALOBJECT[point]["markerObj"].setMap(null)
+            }
+        }
+    }else if(ckb === true && urgents === false && nonUrgents === true){
+        for(point in FINALOBJECT){
+            if(FINALOBJECT[point]["team"] === "Treatment" && FINALOBJECT[point]["importance"] === "To Do"){
+                FINALOBJECT[point]["markerObj"].setMap(map)
+            }
+        }
+    }else if(ckb === true && urgents === true && nonUrgents === false){
+        for(point in FINALOBJECT){
+            if(FINALOBJECT[point]["team"] === "Treatment" && FINALOBJECT[point]["importance"] === "Urgent"){
+                FINALOBJECT[point]["markerObj"].setMap(map)
+            }
+        }
+    }
+});
+
+$('#wrapperDiv7').on('click', function (event){
+    if($("#Urgents").is(':checked') === true){
+        $("#Urgents").prop("checked", false)
+    }else{
+        $("#Urgents").prop("checked", true)
+    }
+
+    let ckb = $("#Urgents").is(':checked');
+    let nonUrgents = $("#ToDo").is(':checked');
+
+    if(ckb === true && nonUrgents === true){
+        for(point in FINALOBJECT){
+            if(FINALOBJECT[point]["importance"] === "Urgent"){
+                FINALOBJECT[point]["markerObj"].setMap(map)
+            }
+        }
+        $("#Urgents").prop("checked", true)
+        $("#ToDo").prop("checked", true)
+        $("#TeamTreatment").prop("checked", true)
+        $("#Team3Proj").prop("checked", true)
+        $("#Team2Proj").prop("checked", true)
+        $("#Team1Proj").prop("checked", true)
+        $("#Team2LT").prop("checked", true)
+        $("#Team1LT").prop("checked", true)
+    }else if(ckb !== true && nonUrgents === true){
+        for(point in FINALOBJECT){
+            if(FINALOBJECT[point]["importance"] === "Urgent"){
+                FINALOBJECT[point]["markerObj"].setMap(null)
+            }
+        }
+    }else if(ckb !== true && nonUrgents !== true){
+        for(point in FINALOBJECT){
+            if(FINALOBJECT[point]["importance"] === "Urgent"){
+                FINALOBJECT[point]["markerObj"].setMap(null)
+            }
+        }
+        $("#Urgents").prop("checked", false)
+        $("#ToDo").prop("checked", false)
+        $("#TeamTreatment").prop("checked", false)
+        $("#Team3Proj").prop("checked", false)
+        $("#Team2Proj").prop("checked", false)
+        $("#Team1Proj").prop("checked", false)
+        $("#Team2LT").prop("checked", false)
+        $("#Team1LT").prop("checked", false)
+    }else if(ckb === true && nonUrgents !== true){
+        for(point in FINALOBJECT){
+            if(FINALOBJECT[point]["importance"] === "Urgent"){
+                FINALOBJECT[point]["markerObj"].setMap(map)
+            }
+        }
+        $("#Urgents").prop("checked", true)
+        $("#TeamTreatment").prop("checked", true)
+        $("#Team3Proj").prop("checked", true)
+        $("#Team2Proj").prop("checked", true)
+        $("#Team1Proj").prop("checked", true)
+        $("#Team2LT").prop("checked", true)
+        $("#Team1LT").prop("checked", true)
+    }
+})
+
+
+$('#wrapperDiv8').on('click', function (event){
+    if($("#ToDo").is(':checked') === true){
+        $("#ToDo").prop("checked", false)
+    }else{
+        $("#ToDo").prop("checked", true)
+    }
+
+    let ckb = $("#ToDo").is(':checked');
+    let urgents = $("#Urgents").is(':checked');
+
+    if(ckb === true && urgents === true){
+        for(point in FINALOBJECT){
+            if(FINALOBJECT[point]["importance"] === "To Do"){
+                FINALOBJECT[point]["markerObj"].setMap(map)
+            }
+        }
+
+        $("#Urgents").prop("checked", true)
+        $("#ToDo").prop("checked", true)
+        $("#TeamTreatment").prop("checked", true)
+        $("#Team3Proj").prop("checked", true)
+        $("#Team2Proj").prop("checked", true)
+        $("#Team1Proj").prop("checked", true)
+        $("#Team2LT").prop("checked", true)
+        $("#Team1LT").prop("checked", true)
+    }else if(ckb !== true && urgents === true){
+        for(point in FINALOBJECT){
+            if(FINALOBJECT[point]["importance"] === "To Do"){
+                FINALOBJECT[point]["markerObj"].setMap(null)
+            }
+        }
+    }else if(ckb !== true && urgents !== true){
+        for(point in FINALOBJECT){
+            if(FINALOBJECT[point]["importance"] === "To Do"){
+                FINALOBJECT[point]["markerObj"].setMap(null)
+            }
+        }
+        $("#Urgents").prop("checked", false)
+        $("#ToDo").prop("checked", false)
+        $("#TeamTreatment").prop("checked", false)
+        $("#Team3Proj").prop("checked", false)
+        $("#Team2Proj").prop("checked", false)
+        $("#Team1Proj").prop("checked", false)
+        $("#Team2LT").prop("checked", false)
+        $("#Team1LT").prop("checked", false)
+    }else if(ckb === true && urgents === false){
+        for(point in FINALOBJECT){
+            if(FINALOBJECT[point]["importance"] === "To Do"){
+                FINALOBJECT[point]["markerObj"].setMap(map)
+            }
+        }
+        $("#ToDo").prop("checked", true)
+        $("#TeamTreatment").prop("checked", true)
+        $("#Team3Proj").prop("checked", true)
+        $("#Team2Proj").prop("checked", true)
+        $("#Team1Proj").prop("checked", true)
+        $("#Team2LT").prop("checked", true)
+        $("#Team1LT").prop("checked", true)
+    }
+})
+
+$('#wrapperDiv9').on('click', function (event){
+    for(point in FINALOBJECT){
+        FINALOBJECT[point]["markerObj"].setMap(map)
+        if(FINALOBJECT[point]["team"] === "LT Team 1"){
+            FINALOBJECT[point]["markerObj"].setOptions({icon: {url: blue}});
+        }
+        else if(FINALOBJECT[point]["team"] === "LT Team 2"){
+            FINALOBJECT[point]["markerObj"].setOptions({icon: {url: green}});
+        }
+        else if(FINALOBJECT[point]["team"] === "Projects Team 1"){
+            FINALOBJECT[point]["markerObj"].setOptions({icon: {url: pink}});
+        }
+        else if(FINALOBJECT[point]["team"] === "Projects Team 2"){
+            FINALOBJECT[point]["markerObj"].setOptions({icon: {url: yellow}});
+        }
+        else if(FINALOBJECT[point]["team"] === "Projects Team 3"){
+            FINALOBJECT[point]["markerObj"].setOptions({icon: {url: orange}});
+        }
+        else if(FINALOBJECT[point]["team"] === "Treatment"){
+            FINALOBJECT[point]["markerObj"].setOptions({icon: {url: purple}});
+        }
+    }
+    map.setZoom(10)
+    map.setCenter({lat:-34.151491,lng:150.813088})
+
+    $("#Urgents").prop("checked", true)
+    $("#ToDo").prop("checked", true)
+    $("#TeamTreatment").prop("checked", true)
+    $("#Team3Proj").prop("checked", true)
+    $("#Team2Proj").prop("checked", true)
+    $("#Team1Proj").prop("checked", true)
+    $("#Team2LT").prop("checked", true)
+    $("#Team1LT").prop("checked", true)
+    $("#CalibrationCheck").prop("checked", false)
+
+    GetCanvasDataNow()
+})
+
+
+$("#wrapperDiv10").on("click", function(event){
+    GetCanvasDataNow();
+})
+
+//detects enter key press event
+$("#searching").keyup(function(event) {
+    if (event.keyCode === 13) {
+        $("#search").click();
+    }
+});
+
+
+$("#search").on("click", function(){
+    let ckd = $('#searching').val()
+    for(search in FINALOBJECT){
+        if(search === ckd.toString().toUpperCase()){
+            FINALOBJECT[search]["markerObj"].setMap(map);
+            FINALOBJECT[search]["markerObj"].setAnimation(google.maps.Animation.BOUNCE)
+            map.setCenter(FINALOBJECT[search]["markerObj"].getPosition())
+            map.setZoom(14)
+            $("#searchBar").find("#searching").val("")
+            FINALOBJECT[search]["markerObj"].setAnimation(google.maps.Animation.DROP)
+        }
+    }
+})
+
+$("#wrapperDiv11").on("click", function(event){
+    if($("#CalibrationCheck").is(':checked') === true){
+        $("#CalibrationCheck").prop("checked", false)
+    }else{
+        $("#CalibrationCheck").prop("checked", true)
+    }
+
+    let ckb = $("#CalibrationCheck").is(':checked');
+
+    for(cali in calibrationFINALOBJECT){
+        if(FINALOBJECT[cali.toString().toUpperCase()] !== undefined){
+            FINALOBJECT[cali]["markerObj"].setOptions({icon: {url: "./40.png"}});
+        }
+    }
+})
+
+</script>
+
+
+</body>
+
+</html>

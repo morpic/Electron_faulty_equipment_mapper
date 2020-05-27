@@ -1,0 +1,30 @@
+{
+  "name": "electronn",
+  "version": "1.0.0",
+  "description": "testing electronjs for gmaps",
+  "main": "Main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist:windows": "electron-builder --windows -",
+    "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --prune=true --out=release-builds",
+    "package-win": "electron-packager . alpha phase-map --overwrite --platform=win32 --arch=ia32 --prune=true --out=release-builds --asar --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"Alpha Phase Map\"",
+    "package-linux": "electron-packager . electron-tutorial-app --overwrite --asar=true --platform=linux --arch=x64 --icon=assets/icons/png/icon.png --prune=true --out=release-builds"
+  },
+  "author": "me",
+  "license": "ISC",
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.0",
+    "express": "^4.17.1",
+    "jquery": "^3.4.1",
+    "request": "^2.88.2",
+    "xlsx": "^0.15.4",
+    "xml2js": "^0.4.22"
+  },
+  "devDependencies": {
+    "electron": "^6.0.10",
+    "electron-builder": "^21.2.0",
+    "electron-packager": "^14.1.1",
+    "electron-rebuild": "^1.8.6",
+    "electron-winstaller": "^4.0.0"
+  }
+}
